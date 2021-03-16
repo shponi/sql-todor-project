@@ -1,13 +1,13 @@
 SELECT
 	a.product_name,
-	group_name,
-  price,
+	b.group_name,
+  a.price,
 	RANK () OVER (
-		PARTITION BY group_name
+		PARTITION BY b.group_name
 		ORDER BY
-			price
+			a.price
 	)
 FROM
 	products a
 INNER JOIN product_groups b
-on ;
+on a.group_id=b.group_id;
