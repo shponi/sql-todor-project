@@ -1,5 +1,5 @@
 SELECT
-	product_name,
+	a.product_name,
 	group_name,
   price,
 	RANK () OVER (
@@ -8,5 +8,6 @@ SELECT
 			price
 	)
 FROM
-	products
-INNER JOIN product_groups USING (group_id);
+	products a
+INNER JOIN product_groups b
+on ;
