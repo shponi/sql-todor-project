@@ -1,1 +1,1 @@
-# sql-todor-project
+# PostgreSQL-todor-project
