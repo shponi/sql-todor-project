@@ -1,20 +1,19 @@
-CREATE VIEW product_master AS
+CREATE VIEW product_ranking AS
   SELECT
-	a.product_name,
-	b.group_name,
-  a.price,
+	a.product_name as name_product,
+	b.group_name as name_group,
+  a.price as price_product,
 	RANK () OVER (
 		PARTITION BY b.group_name
-		ORDER BY
-			a.price
-	)
+		ORDER BY a.price DESC) as ranking
 FROM
-	products a
+products a
 INNER JOIN product_groups b
 on a.group_id=b.group_id;
 
 
 SELECT
-	*
+	name_product
 FROM
-	product_master;
+	product_ranking
+WHERE ranking>=2;
