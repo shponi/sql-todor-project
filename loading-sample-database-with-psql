@@ -1,0 +1,4 @@
+>psql
+CREATE DATABASE dvdrental
+C:\>cd C:\Program Files\PostgreSQL\12\bin
+pg_restore -U postgres -d dvdrental C:\sampledb\dvdrental.tar
