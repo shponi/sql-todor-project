@@ -1,0 +1,37 @@
+CREATE DATABASE hr 
+WITH 
+   ENCODING = 'UTF8'
+   OWNER = hr
+   CONNECTION LIMIT = 100;
+   
+ ALTER DATABASE testdb2 
+RENAME TO testhrdb;
+
+ALTER DATABASE testhrdb 
+OWNER TO hr;
+
+ALTER DATABASE testhrdb
+SET TABLESPACE hr_default;
+
+CREATE TABLESPACE hr_default
+OWNER hr
+LOCATION 'C:\\sampledb\\hr';
+
+ALTER DATABASE testhrdb 
+SET escape_string_warning = off;
+
+SELECT  *
+FROM pg_stat_activity
+WHERE datname = 'db';
+
+SELECT
+    pg_terminate_backend (pid)
+FROM
+    pg_stat_activity
+WHERE
+    datname = 'db';
+    
+    ALTER DATABASE db RENAME TO newdb;
+    
+    CREATE DATABASE dvdrental_test 
+WITH TEMPLATE dvdrental;
