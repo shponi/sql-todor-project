@@ -1,0 +1,7 @@
+pg_dump -U postgres -W -F t dvdrental > c:\pgbackup\dvdrental.tar
+
+\list
+
+pg_dumpall -U postgres > c:\pgbackup\all.sql
+
+pg_restore --dbname=newdvdrental --verbose c:\pgbackup\dvdrental.tar
