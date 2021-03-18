@@ -1,0 +1,19 @@
+CREATE SCHEMA scm 
+    CREATE TABLE deliveries(
+        id SERIAL NOT NULL, 
+        customer_id INT NOT NULL, 
+        ship_date DATE NOT NULL
+    )
+    CREATE VIEW delivery_due_list AS 
+        SELECT ID, ship_date 
+        FROM deliveries 
+        WHERE ship_date <= CURRENT_DATE;
+        
+        SELECT * 
+FROM 
+    pg_catalog.pg_namespace
+WHERE 
+    nspacl is NULL AND
+    nspname NOT LIKE 'pg_%'
+ORDER BY 
+    nspname;
