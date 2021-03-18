@@ -1,0 +1,15 @@
+CREATE TABLESPACE ts_primary 
+LOCATION 'c:\pgdata\primary';
+
+\db
+
+CREATE DATABASE logistics 
+TABLESPACE ts_primary;
+
+\db+ ts_primary
+
+ALTER TABLESPACE dvdrental 
+RENAME TO dvdrental_raid;
+
+ALTER TABLESPACE dvdrental_raid 
+OWNER to hr;
